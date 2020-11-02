@@ -5,57 +5,67 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './engine.component.html',
   styleUrls: ['./engine.component.scss']
 })
+
 export class EngineComponent implements OnInit {
-  // engineID =  10;
-  // engineStatus = 'off';
+
+  warna = '';
+  avg = 0;
+  sumAge = 0;
+  machineStatus = Math.random() > 0.5 ? 'on' : 'off';
+
+  students = [
+    {
+      nis: 111,
+      name: 'Juned',
+      class: 'X',
+      age: 20
+    },
+    {
+      nis: 222,
+      name: 'Jution',
+      class: 'XI',
+      age: 30
+    },
+    {
+      nis: 333,
+      name: 'Edy',
+      class: 'XII',
+      age: 23
+    },
+    {
+      nis: 444,
+      name: 'Doni',
+      class: 'XII',
+      age: 23
+    }
+  ];
 
   constructor() {
-    // setTimeout(() => {
-    //   this.allowStartedEngine = true;
-    // }, 3000);
-    // this.engineStatus = Math.random() > 0.5 ? 'on' : 'off';
   }
-
-  // // membuat data binding, yang akan di panggil di .html
-  // //  property data binding
-  // allowStartedEngine = false;
-  // //  Event Binding
-  // engineStartedStatus = 'No engine was on!';
-  // engineName = 'Test Name';
-  // engineCreated = false;
-  //
-  // // tslint:disable-next-line:typedef
-  // getEngineStatus: any;
-
-  // LifeCycle
   // tslint:disable-next-line:typedef
   ngOnInit() {
     console.log('Method ini di panggil');
     this.average();
   }
-
-  warna = '';
-  avg = 0;
-  sumAge = 0;
-
+  // tslint:disable-next-line:typedef
   search() {
     this.avg = 0;
     this.sumAge = 0;
-    for ( let student2 of this.students ) {
-      this.sumAge = this.sumAge + student2.age;
+    for ( const student of this.students ) {
+      this.sumAge = this.sumAge + student.age;
     }
     this.average();
   }
 
+  // tslint:disable-next-line:typedef
   average() {
-    for(let student2 of this.students) {
-      this.sumAge = this.sumAge + student2.age;
+    for (const student of this.students) {
+      this.sumAge = this.sumAge + student.age;
     }
 
-    this.avg = this.sumAge / this.student2.length;
+    this.avg = this.sumAge / this.students.length;
   }
 
-  machineStatus = Math.random() > 0.5 ? 'on' : 'off';
 
   // tslint:disable-next-line:typedef
   studentColor(age) {
@@ -67,17 +77,5 @@ export class EngineComponent implements OnInit {
     }
     return this.warna;
   }
-  //
-  // // tslint:disable-next-line:typedef
-  // engineStarted() {
-  //   this.engineCreated = true;
-  //   this.engineStatus = 'Engine was on, engine name is ' + this.engineName;
-  // }
-  //
-  // // tslint:disable-next-line:typedef
-  // updateEngineName(event: Event) {
-  //   console.log(event);
-  //   this.engineName = (event.target as HTMLInputElement).value;
-  // }
 
 }

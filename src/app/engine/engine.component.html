@@ -1,32 +1,3 @@
-<!--<h3>This is engine component</h3>-->
-<!--&lt;!&ndash; Hasil data binding dari engine.component.ts yang di buat sebelyumnya &ndash;&gt;-->
-<!--<p>Engine with ID {{ engineID }} is {{ engineStatus }}</p>-->
-
-<!--&lt;!&ndash; Property data binding &ndash;&gt;-->
-<!--<button [disabled]="!allowNewEngine">Tambah Mesin Baru</button>-->
-<!--<p> {{ allowNewEngine }} </p>-->
-<!--<p [innerText]="allowNewEngine"></p>-->
-
-<!--Event Binding-->
-<!--<label for="engineName">Engine Name</label>-->
-<!--&lt;!&ndash;<input type="text" id="engineName" (input)="updateEngineName($event)">&ndash;&gt;-->
-<!--&lt;!&ndash;Menggunakan Two Way Data Binding [(ngModel)] -> cek di app.module.ts ada import FormsModule &ndash;&gt;-->
-<!--&lt;!&ndash;Two Way Data Binding adalah setiap perubahan yang kita lakukan di Javascript kita akan berpengaruh terhadap tampilan (view layer) &ndash;&gt;-->
-<!--<input type="text" id="engineName" [(ngModel)]="engineName" class="form-control">-->
-<!--<br>-->
-<!--&lt;!&ndash;<p>{{engineName}}</p>&ndash;&gt;-->
-<!--<button-->
-<!--  [disabled]="!allowStartedEngine"-->
-<!--  (click)="engineStarted()" class="btn btn-outline-success"> Nyalakan Mesin Ini</button>-->
-<!--&lt;!&ndash;<p>{{engineStartedStatus}}</p>&ndash;&gt;-->
-
-<!--&lt;!&ndash;Directive&ndash;&gt;-->
-<!--<p *ngIf="engineCreated"> Engine was on, engine is name {{ engineName }} </p>-->
-
-<!--&lt;!&ndash;Attribute Directive&ndash;&gt;-->
-<!--<p [ngClass]="{ online: engineStatus === 'on' }"> Engine with ID {{engineID}} is {{getEngineStatus}} </p>-->
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,9 +5,49 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hitung Umur</title>
 </head>
 <body>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">Data Siswa</h4>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <br>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">NIS</th>
+              <th scope="col">Name</th>
+              <th scope="col">Class</th>
+              <th scope="col">Age</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let student of students, index as i">
+            <td [ngStyle]="{color: studentColor(student.age)}">{{i+1}}</td>
+            <td [ngStyle]="{color: studentColor(student.age)}">{{student.nis}}</td>
+            <td [ngStyle]="{color: studentColor(student.age)}">{{student.name}}</td>
+            <td [ngStyle]="{color: studentColor(student.age)}">{{student.class}}</td>
+            <td [ngStyle]="{color: studentColor(student.age)}">{{student.age}}</td>
+          </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th [colSpan]="4" class="text-right">Total Siswa</th>
+              <th>{{students.length}}</th>
+            </tr>
+            <tr>
+              <th [colSpan]="4" class="text-right">Rata-rata Umur</th>
+              <th>{{avg}}</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
