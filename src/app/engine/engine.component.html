@@ -8,20 +8,35 @@
 <!--<p [innerText]="allowNewEngine"></p>-->
 
 <!--Event Binding-->
-<label for="engineName">Engine Name</label>
-<!--<input type="text" id="engineName" (input)="updateEngineName($event)">-->
-<!--Menggunakan Two Way Data Binding [(ngModel)] -> cek di app.module.ts ada import FormsModule -->
-<!--Two Way Data Binding adalah setiap perubahan yang kita lakukan di Javascript kita akan berpengaruh terhadap tampilan (view layer) -->
-<input type="text" id="engineName" [(ngModel)]="engineName" class="form-control">
-<br>
-<!--<p>{{engineName}}</p>-->
-<button
-  [disabled]="!allowStartedEngine"
-  (click)="engineStarted()" class="btn btn-outline-success"> Nyalakan Mesin Ini</button>
-<!--<p>{{engineStartedStatus}}</p>-->
+<!--<label for="engineName">Engine Name</label>-->
+<!--&lt;!&ndash;<input type="text" id="engineName" (input)="updateEngineName($event)">&ndash;&gt;-->
+<!--&lt;!&ndash;Menggunakan Two Way Data Binding [(ngModel)] -> cek di app.module.ts ada import FormsModule &ndash;&gt;-->
+<!--&lt;!&ndash;Two Way Data Binding adalah setiap perubahan yang kita lakukan di Javascript kita akan berpengaruh terhadap tampilan (view layer) &ndash;&gt;-->
+<!--<input type="text" id="engineName" [(ngModel)]="engineName" class="form-control">-->
+<!--<br>-->
+<!--&lt;!&ndash;<p>{{engineName}}</p>&ndash;&gt;-->
+<!--<button-->
+<!--  [disabled]="!allowStartedEngine"-->
+<!--  (click)="engineStarted()" class="btn btn-outline-success"> Nyalakan Mesin Ini</button>-->
+<!--&lt;!&ndash;<p>{{engineStartedStatus}}</p>&ndash;&gt;-->
 
-<!--Directive-->
-<p *ngIf="engineCreated"> Engine was on, engine is name {{ engineName }} </p>
+<!--&lt;!&ndash;Directive&ndash;&gt;-->
+<!--<p *ngIf="engineCreated"> Engine was on, engine is name {{ engineName }} </p>-->
 
-<!--Attribute Directive-->
-<p [ngClass]="{ online: engineStatus === 'on' }"> Engine with ID {{engineID}} is {{getEngineStatus}} </p>
+<!--&lt;!&ndash;Attribute Directive&ndash;&gt;-->
+<!--<p [ngClass]="{ online: engineStatus === 'on' }"> Engine with ID {{engineID}} is {{getEngineStatus}} </p>-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hitung Umur</title>
+</head>
+<body>
+
+</body>
+</html>
