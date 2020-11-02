@@ -12,10 +12,16 @@
 <!--<input type="text" id="engineName" (input)="updateEngineName($event)">-->
 <!--Menggunakan Two Way Data Binding [(ngModel)] -> cek di app.module.ts ada import FormsModule -->
 <!--Two Way Data Binding adalah setiap perubahan yang kita lakukan di Javascript kita akan berpengaruh terhadap tampilan (view layer) -->
-<input type="text" id="engineName" [(ngModel)]="engineName">
-<p>{{engineName}}</p>
+<input type="text" id="engineName" [(ngModel)]="engineName" class="form-control">
+<br>
+<!--<p>{{engineName}}</p>-->
 <button
   [disabled]="!allowStartedEngine"
-  (click)="engineStarted()"> Nyalakan Mesin Ini</button>
-<p>{{engineStartedStatus}}</p>
+  (click)="engineStarted()" class="btn btn-outline-success"> Nyalakan Mesin Ini</button>
+<!--<p>{{engineStartedStatus}}</p>-->
 
+<!--Directive-->
+<p *ngIf="engineCreated"> Engine was on, engine is name {{ engineName }} </p>
+
+<!--Attribute Directive-->
+<p [ngClass]="{ online: engineStatus === 'on' }"> Engine with ID {{engineID}} is {{getEngineStatus}} </p>
