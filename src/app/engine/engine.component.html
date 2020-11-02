@@ -2,11 +2,20 @@
 <!--&lt;!&ndash; Hasil data binding dari engine.component.ts yang di buat sebelyumnya &ndash;&gt;-->
 <!--<p>Engine with ID {{ engineID }} is {{ engineStatus }}</p>-->
 
-<!-- Property data binding -->
-<button [disabled]="!allowNewEngine">Tambah Mesin Baru</button>
-<p> {{ allowNewEngine }} </p>
-<p [innerText]="allowNewEngine"></p>
+<!--&lt;!&ndash; Property data binding &ndash;&gt;-->
+<!--<button [disabled]="!allowNewEngine">Tambah Mesin Baru</button>-->
+<!--<p> {{ allowNewEngine }} </p>-->
+<!--<p [innerText]="allowNewEngine"></p>-->
 
-<app-engine></app-engine>
-<app-engine></app-engine>
+<!--Event Binding-->
+<label for="engineName">Engine Name</label>
+<!--<input type="text" id="engineName" (input)="updateEngineName($event)">-->
+<!--Menggunakan Two Way Data Binding [(ngModel)] -> cek di app.module.ts ada import FormsModule -->
+<!--Two Way Data Binding adalah setiap perubahan yang kita lakukan di Javascript kita akan berpengaruh terhadap tampilan (view layer) -->
+<input type="text" id="engineName" [(ngModel)]="engineName">
+<p>{{engineName}}</p>
+<button
+  [disabled]="!allowStartedEngine"
+  (click)="engineStarted()"> Nyalakan Mesin Ini</button>
+<p>{{engineStartedStatus}}</p>
 
