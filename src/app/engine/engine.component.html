@@ -1,0 +1,12 @@
+<!--<h3>This is engine component</h3>-->
+<!--&lt;!&ndash; Hasil data binding dari engine.component.ts yang di buat sebelyumnya &ndash;&gt;-->
+<!--<p>Engine with ID {{ engineID }} is {{ engineStatus }}</p>-->
+
+<!-- Property data binding -->
+<button [disabled]="!allowNewEngine">Tambah Mesin Baru</button>
+<p> {{ allowNewEngine }} </p>
+<p [innerText]="allowNewEngine"></p>
+
+<app-engine></app-engine>
+<app-engine></app-engine>
+
